@@ -3,20 +3,31 @@
 
 class Article
 {
+    /**
+     * Titre de l'article
+     */
     private $title;
-    private $content;
+    /**
+     * lien de l'article
+     */
     private $link;
 
-    public function __construct($title, $content,$link){
+    /**
+     * Constructeur
+     * @title : titre de l'article
+     * @link : lien vers l'article
+     */
+    public function __construct($title, $link){
         $this->title = $title;
-        $this->content = $content;
         $this->link = $link;
     }
 
+    /**
+     * Fonction pour afficher dans le DOM, un lien vers l'article
+     */
     public function showArticle(){
         $html = '<div class="article">';
             $html .= "\n\t".'<a href="' . $this->link.'">'.$this->title.'</a>';
-            $html .= "\n\t".'<p>'.$this->content.'</p>';
         $html .= '</div>';
         return $html;
     }

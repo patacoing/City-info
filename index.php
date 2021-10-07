@@ -3,8 +3,6 @@
 require "vendor/autoload.php";
 require "class/Regions.php";
 
-//header("Location:update_json.php");
-
 $regions = new Regions("data/regions-france.csv");
 ?>
 <!DOCTYPE html>
@@ -14,8 +12,8 @@ $regions = new Regions("data/regions-france.csv");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css.css">
-    <script type="text/javascript" src="js.js"></script>
+    <link rel="stylesheet" href="public/css.css">
+    <script type="text/javascript" src="public/js.js"></script>
     <script src="https://kit.fontawesome.com/8b2d3fbf56.js" crossorigin="anonymous"></script>
 </head>
 <body onload="init()">
@@ -60,9 +58,8 @@ $regions = new Regions("data/regions-france.csv");
 </body>
 </html>
 
-<!-- pattern : récupérer les tous les href ne contenant pas de "#" ==> pas de redirection vers le site
-ni ceux contenant "http" ou "https" sauf s'ils contiennent l'url du site
-
-
-- le lien final est donc l'url de base + le href
+<!-- 
+    il faut au moment de l'ajout d'un site : 
+    ajouter aussi dans le json : le sélecteur css corespondant à la recherche
+    aussi les attributs à extraire ??
 -->

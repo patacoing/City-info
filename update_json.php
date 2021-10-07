@@ -11,13 +11,16 @@ $select .= '</select>';
 
 if(isset($_GET["action"]))
 if($_GET["media"] != "")
-if($_GET["link"] != ""){
+if($_GET["link"] != "")
+if($_GET["cssSelector"] != ""){
     $media = $_GET["media"];
     $link = $_GET["link"];
     $index =$_GET["region"];
+    $cssSelector = $_GET["cssSelector"];
     $content["regions"][$index]["medias"][] = array(
         "name" => $media,
-        "link" => $link
+        "link" => $link,
+        "cssSelector" => $cssSelector
     );
     $data = json_encode($content);
     $fic = fopen("data/data.json","w");
@@ -42,6 +45,7 @@ if($_GET["link"] != ""){
         <?= $select ?>
         <input type="text" name="media" placeholder="Enter the name of the newspaper...">
         <input type="text" name="link" placeholder="link...">
+        <input type="text" name="cssSelector" placeholder="Css selector">
         <input type="submit" value="Update" name="action">
     </form>
     <?php 
