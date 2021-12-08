@@ -12,10 +12,19 @@ print_r($_POST);
 if(isset($_POST["region-path"])){
     $region_name = $_POST["region-name"];
     $region_path = $_POST["region-path"];
-
+    $region_code = $_POST["region-code"];
+    /*
     $medias = file_get_contents("data/data.json");
     $medias = json_decode($medias, true);
-
+    */
+    //il faut récupérer la région avec la liste des médias via l'api 
+    $regionAPI = file_get_contents("http://localhost:3000/regions/".$region_code);
+    $regionAPI = json_decode($regionAPI, true);
+    echo "<pre>";
+    print_r($regionAPI);
+    echo "</pre>";
+    
+    /*
     foreach($medias["regions"] as $media){
         if($media["name"] == $region_name){
             foreach($media["medias"] as $presse){
@@ -39,7 +48,7 @@ if(isset($_POST["region-path"])){
             }
         }
         
-    }
+    }*/
 
 }else header("Location:index.php");
 ?>

@@ -49,6 +49,7 @@ $regions = new Regions("data/regions-france.csv");
         <div class="submit">
             <form action="regionInfo.php" method="post" id="form-image">
                 <input type="submit" name="action">
+                <input type="hidden" name="region-code" value="<?= $regions[0]->getCode(); ?>">
                 <input type="hidden" name="region-name" value="<?= $regions[0]->getName(); ?>">
                 <input type="hidden" name="region-path" value="<?= "http://localhost/City-info/data/img/".$regions[0]->getImgPath(); ?>">
             </form>

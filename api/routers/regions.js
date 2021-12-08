@@ -54,10 +54,10 @@ regions.get("/",(req,res) => {
     });
 });
 
-//récupérer les info d'une région selon l'id
-regions.get("/:id",(req,res,next) => {
-    let id = req.params.id;
-    connection.query("SELECT * FROM region WHERE id = ?",id,(err,resultat) => {
+//récupérer les info d'une région selon son code
+regions.get("/:code",(req,res,next) => {
+    let code = req.params.code;
+    connection.query("SELECT * FROM region WHERE code = ?",code,(err,resultat) => {
         if(err) throw err;
         if(resultat.length == 0)res.status(404).json({"message":"Region not found"});
         else{
