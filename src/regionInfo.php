@@ -17,9 +17,10 @@ if(isset($_POST["region-path"])){
     $medias = file_get_contents("data/data.json");
     $medias = json_decode($medias, true);
     */
-    //il faut récupérer la région avec la liste des médias via l'api 
+    //on récupère la liste des médias via l'api
     $regionAPI = file_get_contents("http://localhost:3000/regions/".$region_code);
     $regionAPI = json_decode($regionAPI, true);
+    $regionAPI = $regionAPI["regions"];
     echo "<pre>";
     print_r($regionAPI);
     echo "</pre>";

@@ -71,5 +71,6 @@ function play(sens){
     images[i].style.display = "block";
     document.querySelector('#form-image input[name="region-name"]').value = images[i].alt;
     document.querySelector('#form-image input[name="region-path"]').value = images[i].src;
+    document.querySelector('#form-image input[name="region-code"]').value = images[i].src.split("/")[7].split(".")[0];
 }
 
