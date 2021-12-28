@@ -4,19 +4,17 @@ require "class/Article.php";
 
 use Goutte\Client;
 $client = new Client();
+$articles = [];
+$title;
+$href;
 
 require("class/Region.php");
 
-print_r($_POST);
-
-if(isset($_POST["region-path"])){
+if(isset($_POST["region-path"]) && isset($_POST["region-code"]) && isset($_POST["region-name"])){
     $region_name = $_POST["region-name"];
     $region_path = $_POST["region-path"];
     $region_code = $_POST["region-code"];
-    /*
-    $medias = file_get_contents("data/data.json");
-    $medias = json_decode($medias, true);
-    */
+
     //on récupère la liste des médias via l'api
     $regionAPI = file_get_contents("http://localhost:3000/regions/".$region_code);
     $regionAPI = json_decode($regionAPI, true);
@@ -25,31 +23,35 @@ if(isset($_POST["region-path"])){
     print_r($regionAPI);
     echo "</pre>";
     
-    /*
-    foreach($medias["regions"] as $media){
-        if($media["name"] == $region_name){
-            foreach($media["medias"] as $presse){
-                var_dump($presse);
-                //sites de presse de la région
-                echo $presse["link"]."<br>";
+    foreach($regionAPI["medias"] as $media){
+        echo "<pre>";
+        var_dump($media);
+        echo "</pre>";
 
-                $crawler = $client->request("GET",$presse["link"]);
-                $recup = ($crawler->filter($presse["cssSelector"])->extract(["href","title"]));
-                foreach($recup as $article){
-                    if(!empty($article[0]))$articles[] = new Article($article[1],$article[0]);
-                }
-                unset($recup);
+        $crawler = $client->request("GET",$media["link"]);
+        $recup = $crawler->filter($media["cssSelector"]);
+        $recup = $recup->extract(["href","title"]);
 
-                foreach($articles as $article){
-                    echo $article->showArticle();
-                }
-                
+        //Si le titre ne se situe pas dans l'attribut title alors on regarde la "valeur" du noeud (voir méthode extract de Crawler.php)
+        if($recup[0][1] == "") $recup = $crawler->filter($media["cssSelector"])->extract(["href","_text"]);
+        foreach($recup as $article){
+            $href = $article[0];
+            $title = $article[1];
 
-                break;
+            //on regarde si le href contient l'url complet ou juste une partie
+            if(!stristr($href,"http")){
+                //il faut concaténer l'url du média
+                $href = $media["link"].$href;
             }
+            $articles[] = new Article($title,$href);
         }
-        
-    }*/
+        unset($recup);
+        //Problème : si les articles n'ont pas d'attribut title, l'article ne possède pas de titre.
+        //idée : si pas de title,  récupérer les enfant du lien ?
+        foreach($articles as $article){
+            echo $article->showArticle();
+        }
+    }
 
 }else header("Location:index.php");
 ?>
