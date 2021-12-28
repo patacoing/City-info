@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+body{
+    padding:0;
+    font-family: 'Ubuntu', serif;
+    overflow-x: hidden;
+    margin : 0;
+}
+
+#image{
+    position:absolute;
+    top:0;
+    left:0;
+    filter:blur(10px); 
+    z-index: -10;
+    width:100%;
+    background-size: cover;
+    background-position:center;
+}
+
+.title{
+    margin : 8px;
+    width:100%;
+    background-color: #F1F1F1;
+    border-radius: 20px;
+    height: 100px;box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleMedia{
+    border-radius: 20px;
+    margin-top:50px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-left:40px;
+    width:25%;
+    height:px;
+    text-align: center;
+    background-color:#F1F1F1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.containerArticles {
+    display: flex;
+    justify-content: space-evenly;
+    padding : 10px;
+    flex-wrap: wrap;
+}
+
+.article{
+    position: relative;
+    background-color: rgba(214,234,248,0.9);
+    width:180px;
+    min-height: 200px;
+    max-height: 250px;
+    padding : 20px;
+    border-radius: 20px;
+    margin : 20px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    display: flex;
+    justify-content:center;
+    align-items:start;
+    transition-property: transform,box-shadow;
+    transition-duration: 0.5s;
+    overflow: hidden;
+}
+
+.article a{
+    display: block;
+    height:100%;
+    color:black;
+    text-decoration: none;
+    margin-top:30px;
+    line-height:30px;
+    text-align: justify;
+    font-weight:bold;
+}
+.article a::before{
+    display:block;
+    content: "";
+    background-color:black;
+    width:180px;
+    position: absolute;
+    top:10px;
+    height:10px;
+    border-radius: 20px;
+}
+
+.article:hover{
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.article:active{
+    background-color: rgba(230,234,248,0.9);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}

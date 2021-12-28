@@ -14,8 +14,8 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Modification of the regionInfo.php file : added lines to extract all the articles from the different medias
--Scrapping works for each region having medias
+-Stylization of the articles card by adding shadows and effects
+-Adding of name of the region and of each medias
 
 TO DO : 
--Stylize the articles and the UX
+

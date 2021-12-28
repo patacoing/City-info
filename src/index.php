@@ -6,12 +6,12 @@ require "class/Regions.php";
 $regions = new Regions("data/regions-france.csv");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RegInfo</title>
     <link rel="stylesheet" href="public/css.css">
     <script type="text/javascript" src="public/js.js"></script>
     <script src="https://kit.fontawesome.com/8b2d3fbf56.js" crossorigin="anonymous"></script>

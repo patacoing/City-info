@@ -1,7 +1,20 @@
 <?php
 require "vendor/autoload.php";
 require "class/Article.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegInfo</title>
+    <link rel="stylesheet" href="public/regionInfo.css"/>
+</head>
+<body>
+    <div id="image"></div>
 
+<?php
 use Goutte\Client;
 $client = new Client();
 $articles = [];
@@ -19,14 +32,31 @@ if(isset($_POST["region-path"]) && isset($_POST["region-code"]) && isset($_POST[
     $regionAPI = file_get_contents("http://localhost:3000/regions/".$region_code);
     $regionAPI = json_decode($regionAPI, true);
     $regionAPI = $regionAPI["regions"];
-    echo "<pre>";
-    print_r($regionAPI);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($regionAPI);
+    //  echo "</pre>";
+    echo "<div class='title'><h1>";
+    echo $regionAPI["name"];
+    echo "</h1></div>";
+
+    ?>
+    <style>
+        #image{
+            background-image:url("http://localhost/RegInfo/src/<?= $regionAPI["path"] ?>");
+        }
+    </style>
+
+<?php
     
     foreach($regionAPI["medias"] as $media){
-        echo "<pre>";
-        var_dump($media);
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump($media);
+        // echo "</pre>";
+        
+
+        echo "<div class='titleMedia'><h2>";
+        echo $media["name"];
+        echo "</h2></div>";
 
         $crawler = $client->request("GET",$media["link"]);
         $recup = $crawler->filter($media["cssSelector"]);
@@ -48,10 +78,17 @@ if(isset($_POST["region-path"]) && isset($_POST["region-code"]) && isset($_POST[
         unset($recup);
         //Problème : si les articles n'ont pas d'attribut title, l'article ne possède pas de titre.
         //idée : si pas de title,  récupérer les enfant du lien ?
+        echo '<div class="containerArticles">';
         foreach($articles as $article){
             echo $article->showArticle();
         }
+        echo '</div>';
     }
 
 }else header("Location:index.php");
 ?>
+    <script >
+        document.querySelector('#image').style.height = document.body.clientHeight+"px";
+    </script>
+</body>
+</html>
