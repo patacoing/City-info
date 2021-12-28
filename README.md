@@ -14,16 +14,8 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Documentation in the class Files
--modification of the system for the scrapping : added a key cssSelector in the json file
--added for the text input cssSelector in update_json.php
--for the scrapping : cssSelector is needed to be in parameter of the filter method
--Data transfered from the json file to a Mysql DB by using the insertionBdd.php script
--Creation of the API, routes : regions, medias
--Implementation of the differents methods
+-Modification of the regionInfo.php file : added lines to extract all the articles from the different medias
+-Scrapping works for each region having medias
 
 TO DO : 
--need to update the cssSelector of news already present
--Test the scapping on the differents regions
--Implement the put methods 
--Recover the cssSelector for each region and scrap the articles on the websites
+-Stylize the articles and the UX
