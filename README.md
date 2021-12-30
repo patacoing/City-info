@@ -14,8 +14,9 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Stylization of the articles card by adding shadows and effects
--Adding of name of the region and of each medias
+-Adding of an animation for each article card showing "Cliquer pour voir plus"
 
 TO DO : 
+-Complete the PUT method in the API
+-Realise the site allowing us to complete the medias, cssSelector for each region 
 

@@ -10,6 +10,7 @@ require "class/Article.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RegInfo</title>
     <link rel="stylesheet" href="public/regionInfo.css"/>
+    <link rel="stylesheet" href="public/regionInfoAnimation.css"/>
 </head>
 <body>
     <div id="image"></div>
@@ -32,9 +33,6 @@ if(isset($_POST["region-path"]) && isset($_POST["region-code"]) && isset($_POST[
     $regionAPI = file_get_contents("http://localhost:3000/regions/".$region_code);
     $regionAPI = json_decode($regionAPI, true);
     $regionAPI = $regionAPI["regions"];
-    // echo "<pre>";
-    // print_r($regionAPI);
-    //  echo "</pre>";
     echo "<div class='title'><h1>";
     echo $regionAPI["name"];
     echo "</h1></div>";
@@ -49,11 +47,6 @@ if(isset($_POST["region-path"]) && isset($_POST["region-code"]) && isset($_POST[
 <?php
     
     foreach($regionAPI["medias"] as $media){
-        // echo "<pre>";
-        // var_dump($media);
-        // echo "</pre>";
-        
-
         echo "<div class='titleMedia'><h2>";
         echo $media["name"];
         echo "</h2></div>";
