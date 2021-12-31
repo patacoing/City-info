@@ -36,10 +36,14 @@ $select .= '</select>';
                 ?>
                 <div class="region">
                     <div class="infoRegion">
-                        <p><?= $region['name'] ?></p>
-                        <span>id : <?= $region["id"]?></span>
-                        <span>code : <?= $region["code"]?></span>
-                        <span>cheminImg : <?= $region["path"]?></span>
+                        <form>
+                            <input type="hidden" value="<?= $region["id"]?>"/>
+                            <p><?= $region['name'] ?></p>
+                            <span>id : <?= $region["id"]?></span>
+                            <span>code : <?= $region["code"]?></span>
+                            <span>cheminImg : <input type="text" value="<?= $region["path"]?>"/></span>
+                            <input type="button" value="Modify" class="modifyingButton" onclick="modifierRegion(this.parentNode)">
+                        </form>
                     </div>
                     <div class="medias">
                     <?php

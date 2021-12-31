@@ -14,12 +14,23 @@ function modifier(o,isDeleting){
         update("http://localhost:3000/medias/","DELETE",null,null,null,null,o[1].value);
 }
 
+function modifierRegion(o){
+    var idRegion = o[0].value;
+    var path = o[1].value;
+    var options = {
+        method:"PUT",
+        mode:"cors",
+        headers:{"Content-type": "application/json"}, 
+        body:JSON.stringify({"path":path})
+    };
+    fetch("http://localhost:3000/regions/"+idRegion,options).then(() => location.reload()).catch(e => console.log(e));
+}
+
 function changement(o){
     document.querySelector("#idRegion").value = o.value
 }
 
 function update(uri,method,name,link,cssSelector,idRegion,idMedia) {
-    console.log("yo");
     var nameVar = name;
     var linkVar = link;
     var cssSelectorVar = cssSelector;

@@ -18,7 +18,7 @@ body{
     flex-wrap: wrap;
 }
 
-.infoRegion{
+.infoRegion form{
     background-color:pink;
     display: flex;
     flex-direction: column;

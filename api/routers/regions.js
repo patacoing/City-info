@@ -74,6 +74,13 @@ regions.get("/:code",(req,res,next) => {
 //modifier une régions
 regions.put("/:id",(req,res,next) => {
     let id = req.params.id;
+    let path = req.body.path;
+    connection.query("UPDATE region SET path=? WHERE id=?",[path,id],(err,result)=>{
+        if(err) {
+            res.status(400).json({"message":"Bad request"});
+        }
+        res.status(200).json({"message":"sucess"});
+    })
 })
 
 

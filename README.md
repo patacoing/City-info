@@ -14,12 +14,10 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Possibility to modify or delete a media 
--Modification of max-height of an article
+-Completed the PUT method for regions
+-Capacity to modify a region (her path)
 
 
 TO DO : 
--Modify the "update" site to be able to modify a region
 - ? (add verification before modify or add a media/region : link must include "http....", ect...)
 -Build the modifying site by getting data with js (fetch)
--Stylize the different input
