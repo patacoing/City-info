@@ -22,12 +22,12 @@ $select .= '</select>';
 </head>
 <body>
     <h1>This page is used to add medias to the database</h1>
-    <form method="POST" action="http://localhost:3000/medias/" id="form" target="_blank">
+    <form id="form">
         <?= $select ?>
-        <input type="text" name="name" placeholder="Enter the name of the newspaper..." id="name">
-        <input type="text" name="link" placeholder="link..." id="link">
-        <input type="text" name="cssSelector" placeholder="Css selector" id="cssSelector">
-        <input type="button" onClick="actionFormulaire()" value="Update" id="button">
+        <input type="text" name="name" placeholder="Enter the name of the newspaper..." id="mediaNameAdd">
+        <input type="text" name="link" placeholder="link..." id="mediaLinkAdd">
+        <input type="text" name="cssSelector" placeholder="Css selector" id="mediaCssSelectorAdd">
+        <input type="button" value="Update" id="addingButton">
         <input type="hidden" name="idRegion" id="idRegion" value=<?= '"'.$content[0]["id"].'"'?>/>
     </form>
     <div class="containerRegions">
@@ -46,12 +46,17 @@ $select .= '</select>';
                         foreach($region["medias"] as $media){
                             ?>
                             <div class="media">
-                                <p><?= $media['name'] ?></p>
-                                <ul>
-                                    <li>id : <?= $media["id"]?></li>
-                                    <li>link : <?= $media["link"]?></li>
-                                    <li>cssSelector : <?= $media["cssSelector"]?></li>
-                                </ul>
+                                <form>
+                                    <p><input type="text" name="name"class="mediaNameUpdate" value="<?= $media['name']?>"/></p>
+                                    <input type="hidden" class="mediaId" value="<?= $media['id']?>"/>
+                                    <ul>
+                                        <li>id : <?= $media["id"]?></li>
+                                        <li>link : <input type="text" name="link"class="mediaLinkUpdate" value="<?= $media["link"]?>"/></li>
+                                        <li>cssSelector : <input type="text" name="cssSelector" class="mediaCssSelectorUpdate" value=<?= "'".$media["cssSelector"]."'"?>></li>
+                                    </ul>
+                                    <input type="button" value="Modify" class="modifyingButton" onclick="modifier(this.parentNode,false)">
+                                    <input type="button" value="Delete" class="deletingButton" onclick="modifier(this.parentNode,true)">
+                                </form>
                             </div>
                             <?php
                         }

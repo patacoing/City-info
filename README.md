@@ -14,9 +14,12 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Completed the PUT media method in the API
+-Possibility to modify or delete a media 
+-Modification of max-height of an article
 
 
 TO DO : 
--Modify the "update" site to be able to modify a region or its medias (name, link, cssSelector or remove)
+-Modify the "update" site to be able to modify a region
+- ? (add verification before modify or add a media/region : link must include "http....", ect...)
 -Build the modifying site by getting data with js (fetch)
+-Stylize the different input
