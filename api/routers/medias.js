@@ -34,6 +34,16 @@ medias.get("/:id",(req,res) => {
 //modifier un média selon son id
 medias.put("/:id",(req,res) => {
     let id = req.params.id;
+    let name = req.body.name;
+    let link = req.body.link;
+    let cssSelector = req.body.cssSelector;
+    connection.query("UPDATE media SET link=?,cssSelector=?,name=? WHERE id=?",[link,cssSelector,name,id],(err,resultat) => {
+        if(err){
+            res.status(400).json({"message":"Bad request"});
+            throw err;
+        }
+        res.status(200).json({"message":"sucess"});
+    });
 });
 
 

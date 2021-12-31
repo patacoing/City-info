@@ -14,11 +14,9 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Realisation of the site allowing us to add medias => works
--Adding of the cors module 
+-Completed the PUT media method in the API
 
 
 TO DO : 
--Complete the PUT method in the API
 -Modify the "update" site to be able to modify a region or its medias (name, link, cssSelector or remove)
-
+-Build the modifying site by getting data with js (fetch)
