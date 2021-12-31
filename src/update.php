@@ -21,13 +21,13 @@ $select .= '</select>';
     <script type="text/javascript" src="public/update.js"></script>
 </head>
 <body>
-    <h1>This page is used to add medias to the database</h1>
+    <h1>This page is used to manage medias</h1>
     <form id="form">
         <?= $select ?>
         <input type="text" name="name" placeholder="Enter the name of the newspaper..." id="mediaNameAdd">
         <input type="text" name="link" placeholder="link..." id="mediaLinkAdd">
         <input type="text" name="cssSelector" placeholder="Css selector" id="mediaCssSelectorAdd">
-        <input type="button" value="Update" id="addingButton">
+        <input type="button" value="Add" id="addingButton">
         <input type="hidden" name="idRegion" id="idRegion" value=<?= '"'.$content[0]["id"].'"'?>/>
     </form>
     <div class="containerRegions">

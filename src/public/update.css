@@ -19,14 +19,18 @@ body{
 }
 
 .infoRegion form{
-    background-color:pink;
     display: flex;
     flex-direction: column;
     margin-right : 10px;
     padding : 10px;
     border-radius : 10px;
-    background-color:#dbdfdf;
+    justify-content: space-around;
+    /*background-color:#f3f3f3;*/
+    border:2px solid rgb(196, 196, 196);
+    min-width:250px;
 }
+
+
 .infoRegion p {
     font-weight: bold;
     font-size: 20px;
@@ -34,13 +38,42 @@ body{
 
 
 .medias{
-    padding:5px;
     display: flex;
     flex-grow: 2;
 }
 .media{
     background-color:#eaecec;
-    margin : 5px;
     border-radius: 10px;
+    margin-right:5px;
     padding : 10px;
+}
+
+input[type="text"],select{
+    border-radius: 7px;
+    padding:5px;
+    text-indent: 5px;
+    font-family: 'Ubuntu', serif;
+    width:auto;
+    font-size: 15px;
+}
+input[type="button"],input[type="submit"] {
+    width:70px;
+    text-align: center;
+    height:30px;
+    padding:3px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.deletingButton{
+    background-color:rgb(218, 73, 73);
+}
+.deletingButton:hover{
+    background-color:rgb(184, 63, 63);
+}
+.modifyingButton,#addingButton{
+    background-color:rgb(54, 150, 54);
+}
+.modifyingButton:hover,#addingButton:hover{
+    background-color:rgb(40, 110, 40);
 }
