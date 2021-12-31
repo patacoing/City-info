@@ -14,9 +14,11 @@ It means, you can see the various news about it, the news of several websites co
 
 
 **Commit**
--Adding of an animation for each article card showing "Cliquer pour voir plus"
+-Realisation of the site allowing us to add medias => works
+-Adding of the cors module 
+
 
 TO DO : 
 -Complete the PUT method in the API
--Realise the site allowing us to complete the medias, cssSelector for each region 
+-Modify the "update" site to be able to modify a region or its medias (name, link, cssSelector or remove)
 

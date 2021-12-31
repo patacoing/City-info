@@ -31,7 +31,7 @@ medias.get("/:id",(req,res) => {
 });
 
 
-//modifier une région selon son id
+//modifier un média selon son id
 medias.put("/:id",(req,res) => {
     let id = req.params.id;
 });
@@ -63,8 +63,5 @@ medias.delete("/:id",(req,res) => {
         res.status(200).json({"message":"sucess"});
     })
 });
-
-
-
 
 module.exports = medias;
