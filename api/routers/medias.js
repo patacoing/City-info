@@ -58,7 +58,7 @@ medias.post("/",(req,res) => {
             res.status(400).json({"message":"Bad request"});
             throw err;
         }
-        res.status(200).json({"message":"sucess"});
+        res.status(200).json({id:resultat.insertId});
     })
 });
 

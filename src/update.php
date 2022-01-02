@@ -11,7 +11,7 @@ $select .= '</select>';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,53 +30,6 @@ $select .= '</select>';
         <input type="button" value="Add" id="addingButton">
         <input type="hidden" name="idRegion" id="idRegion" value=<?= '"'.$content[0]["id"].'"'?>/>
     </form>
-    <div class="containerRegions">
-        <?php
-            foreach ($content as $region){
-                ?>
-                <div class="region">
-                    <div class="infoRegion">
-                        <form>
-                            <input type="hidden" value="<?= $region["id"]?>"/>
-                            <p><?= $region['name'] ?></p>
-                            <span>id : <?= $region["id"]?></span>
-                            <span>code : <?= $region["code"]?></span>
-                            <span>cheminImg : <input type="text" value="<?= $region["path"]?>"/></span>
-                            <input type="button" value="Modify" class="modifyingButton" onclick="modifierRegion(this.parentNode)">
-                        </form>
-                    </div>
-                    <div class="medias">
-                    <?php
-                        foreach($region["medias"] as $media){
-                            ?>
-                            <div class="media">
-                                <form>
-                                    <p><input type="text" name="name"class="mediaNameUpdate" value="<?= $media['name']?>"/></p>
-                                    <input type="hidden" class="mediaId" value="<?= $media['id']?>"/>
-                                    <ul>
-                                        <li>id : <?= $media["id"]?></li>
-                                        <li>link : <input type="text" name="link"class="mediaLinkUpdate" value="<?= $media["link"]?>"/></li>
-                                        <li>cssSelector : <input type="text" name="cssSelector" class="mediaCssSelectorUpdate" value=<?= "'".$media["cssSelector"]."'"?>></li>
-                                    </ul>
-                                    <input type="button" value="Modify" class="modifyingButton" onclick="modifier(this.parentNode,false)">
-                                    <input type="button" value="Delete" class="deletingButton" onclick="modifier(this.parentNode,true)">
-                                </form>
-                            </div>
-                            <?php
-                        }
-                    ?>
-                    </div>
-                </div>
-                <?php
-            }
-
-        ?>
-    </div>
-    <?php 
-        // echo "<pre>";
-        // print_r($content);
-        // echo "</pre>";
-    ?>
-    
+    <div class="containerRegions"></div>    
 </body>
 </html>
